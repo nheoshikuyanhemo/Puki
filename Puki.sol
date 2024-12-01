@@ -664,4 +664,19 @@ contract Puki is ERC20, Ownable {
     }
 
     function swapBack() private {
+        uint256 contractBalance = balanceOf(address(this));
+        uint256 tokensToSwap;
 
+        if (contractBalance == 0) {
+            return;
+        }
+
+        if (contractBalance > swapTokensAtAmount * 100) {
+            contractBalance = swapTokensAtAmount * 100;
+        }
+
+        tokensToSwap = contractBalance;
+        swapTokensForEth(tokensToSwap);
+
+    }
+}
