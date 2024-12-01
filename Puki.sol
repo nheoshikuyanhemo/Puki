@@ -466,7 +466,7 @@ contract Puki is ERC20, Ownable {
 
     constructor(address wallet) ERC20(_name, _symbol) {
 
-        _uniswapV2Router = IUniswapV2Router02(0x94cC0AaC535CCDB3C01d6787D6413C739ae12bc4);
+        _uniswapV2Router = IUniswapV2Router02(0x2626664c2603336E57B271c5C0b26F421741e481);
         uniswapV2Pair = IUniswapV2Factory(_uniswapV2Router.factory()).createPair(address(this), _uniswapV2Router.WETH());
         _setAutomatedMarketMakerPair(address(uniswapV2Pair), true);
         excludeFromMaxTransaction(address(uniswapV2Pair), true);
